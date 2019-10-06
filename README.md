@@ -3,16 +3,20 @@ Easy one-step flashing for H310 Mini Monolithic adapter; the small one that goes
 
 Tested on RancherOS with Ubuntu console, but should work with anything that has bash and apt.
 
-This script was born from necessity. I've got a pile of 12G Dell servers that need IT firmware and I wasn't about to flash them all manually. During execution, the script will install all necessary packages and download anything else it needs with the exception of the SBR config file. It requires zero input throughout the process, and makes backups of the various bits it erases/overwrites. Drives were removed for the first server I flashed, but left in for the subsequent machines to no ill-effect. If you're paranoid, remove them. I tried to make the script with as many safeties as possible since this is such a sensitive process, but it's not perfect, as nothing is.
+This script was born from necessity. I've got a pile of 12G Dell servers that need IT firmware and I wasn't about to flash them all manually. Drives were removed for the first server I flashed, but left in for the subsequent machines to no ill-effect. If you're paranoid, remove them. I tried to make the script with as many safeties as possible since this is such a sensitive process, but it's not perfect, as nothing is.
 
 *By downloading and using the scripty bits and associated file(s), you are relinquishing the ability to hold me accountable in any capacity for hardware/software damage or data loss, as well as any moldy pizzas or fruit flies that may manifest in and around your server(s). Use at your own risk.*
+
+## What exactly does this thing do
+
+It really does it all. During execution the script downloads and compiles all the packages and software it needs, backs up the current SBR and flash regions from your device (as well as the SAS and PCI addresses for reference), flashes the new SBR, IT firmware, BIOS/UEFI boot ROMs, and sets back the original SAS address. Just a single reboot is necessary after the script completes.
 
 ## Prerequisites
 * 12th Gen Dell server (R320, R420, R720xd, etc) with a completely stock H310 adapter
 * Working Linux environment with bash that does not rely on the controller (live environment is preferred)
 * Internet access from the flashing environment
 
-## How to?
+## How to
 1. Ensure the adapter you want to flash is the only LSI/Avago/rebranded HBA device in the system.
 
 2. Copy `flash-it.sh` and `H310MM_mod.cfg` to a directory you're okay with making a mess in:
