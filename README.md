@@ -12,7 +12,7 @@ This script was born from necessity. I've got a pile of 12G Dell servers that ne
 It really does it all. During execution the script downloads and compiles all the packages and software it needs, backs up the current SBR and flash regions from your device (as well as the SAS and PCI addresses for reference), flashes the new SBR, IT firmware, BIOS/UEFI boot ROMs, and sets back the original SAS address. Just a single reboot is necessary after the script completes.
 
 ## Prerequisites
-* 12th Gen Dell server (R320, R420, R720xd, etc) with a completely stock H310 adapter
+* 12th Gen Dell server (R320, R420, R720xd, etc) with a completely stock H310 Mini Mono adapter
 * Working Linux environment with bash that does not rely on the controller (live environment is preferred)
 * Internet access from the flashing environment
 
