@@ -1,5 +1,5 @@
 # FLASH IT
-Easy one-step flashing for H310 Mini Monolithic adapter; the small one that goes into the special slot on the motherboard. Can probably be applied to similar devices with the proper SBR config file and script variable changes (device identification).
+Easy one-step flashing for H310 Mini Monolithic adapter; the small one that goes into the special slot on the motherboard of Dell 12th Generation servers. Can probably be applied to similar devices with the proper SBR config file and script variable changes (device identification).
 
 Tested on RancherOS with Ubuntu console, but should work with anything that has bash and apt.
 
