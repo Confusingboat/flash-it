@@ -13,7 +13,7 @@ It really does it all. During execution the script downloads and compiles all th
 
 ## Prerequisites
 * 12th Gen Dell server (R320, R420, R720xd, etc) with a completely stock H310 Mini Mono adapter
-* Working Linux environment with bash that does not rely on the controller (live environment is preferred)
+* Working Linux environment with bash and apt that does not rely on the controller (live environment is preferred)
 * Internet access from the flashing environment
 
 ## How to
