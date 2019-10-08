@@ -3,6 +3,8 @@ Easy one-step flashing for H310 Mini Monolithic adapter; the small one that goes
 
 Tested on RancherOS with Ubuntu console, but should work with anything that has bash and apt.
 
+## Brief background
+
 This script was born from necessity. I've got a pile of 12G Dell servers that need IT firmware and I wasn't about to flash them all manually. Drives were removed for the first server I flashed, but left in for the subsequent machines to no ill-effect. If you're paranoid, remove them. I tried to make the script with as many safeties as possible since this is such a sensitive process, but it's not perfect, as nothing is.
 
 *By downloading and using the scripty bits and associated file(s), you are relinquishing the ability to hold me accountable in any capacity for hardware/software damage or data loss, as well as any moldy pizzas or fruit flies that may manifest in and around your server(s). Use at your own risk.*
