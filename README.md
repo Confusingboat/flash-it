@@ -1,22 +1,40 @@
 # FLASH IT
-Easy one-step flashing for H310 Mini Monolithic adapter; the small one that goes into the special slot on the motherboard of Dell 12th Generation servers. Can probably be applied to similar devices with the proper SBR config file and script variable changes (device identification).
 
-Tested on RancherOS with Ubuntu console, but should work with anything that has bash and apt.
+The only script you'll need for flashing LSI SAS2-based adapters.
 
-## What exactly does this thing do
+During execution the script will:
+* Download and compile all the packages and software it needs
+* Download P20 IT mode firmware
+* Download boot ROMs
+* Backup the current SBR and flash regions from your device
+* Backup the SAS and PCI addresses for reference
+* Flash modified SBR
+* Flash IT firmware
+* Flash BIOS/signed UEFI boot ROM
+* Sets the original SAS address post-flash to retain multi-adapter support
 
-It really does it all. During execution the script downloads and compiles all the packages and software it needs, backs up the current SBR and flash regions from your device (as well as the SAS and PCI addresses for reference), flashes the new SBR, IT firmware, BIOS/UEFI boot ROMs, and sets back the original SAS address. Just a single reboot is necessary after the script completes.
+Just a single reboot is necessary after the script completes<sup>\*</sup>.
+
+Currently this only works for the H310 Mini Mono until the SBR modification is made dynamic and additional device identification strings are accumulated/tested.
+
+<sup>\*You will need to move your backups to persistent storage before rebooting</sup>
+
+Tested on RancherOS 1.5.4 (kernel 4.14) with Ubuntu 18.04 console, but should work with anything that has bash and apt.
+
+## Supported Devices
+* PERC H310 Mini Monolithic
+* _more coming soon!_
+
+## Prerequisites
+* Server or other computer with only the target adapter installed and visible to the OS
+* Linux environment with bash and apt that does not rely on the controller (live environment is recommended)
+* Internet access from the flashing environment
 
 ## Brief background
 
 This script was born from necessity. I've got a pile of 12G Dell servers that need IT firmware and I wasn't about to flash them all manually. Drives were removed for the first server I flashed, but left in for the subsequent machines to no ill-effect. If you're paranoid, remove them. I tried to make the script with as many safeties as possible since this is such a sensitive process, but it's not perfect, as nothing is.
 
 *By downloading and using the scripty bits and associated file(s), you are relinquishing the ability to hold me accountable in any capacity for hardware/software damage or data loss, as well as any moldy pizzas or fruit flies that may manifest in and around your server(s). Use at your own risk.*
-
-## Prerequisites
-* 12th Gen Dell server (R320, R420, R720xd, etc) with a completely stock H310 Mini Mono adapter
-* Working Linux environment with bash and apt that does not rely on the controller (live environment is preferred)
-* Internet access from the flashing environment
 
 ## How to
 1. Ensure the adapter you want to flash is the only LSI/Avago/rebranded HBA device in the system.
