@@ -17,9 +17,9 @@ Just a single reboot is necessary after the script completes<sup>\*</sup>.
 
 Currently this only works for the H310 Mini Mono until the SBR modification is made dynamic and additional device identification strings are accumulated/tested.
 
-<sup>\*You will need to move your backups to persistent storage before rebooting</sup>
-
 Tested on RancherOS 1.5.4 (kernel 4.14) with Ubuntu 18.04 console, but should work with anything that has bash and apt.
+
+<sup>\*_You will need to move your backups to persistent storage before rebooting_</sup>
 
 ## Supported Devices
 * PERC H310 Mini Monolithic
