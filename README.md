@@ -13,7 +13,7 @@ During execution the script will:
 * Flash BIOS/signed UEFI boot ROM
 * Sets the original SAS address post-flash to retain multi-adapter support
 
-Just a single reboot is necessary after the script completes<sup>\*</sup>.
+Just a single reboot is necessary after the script completes.<sup>\*</sup>
 
 Currently this only works for the H310 Mini Mono until the SBR modification is made dynamic and additional device identification strings are accumulated/tested.
 
