@@ -35,7 +35,7 @@ function wait_for_ioc {
   echo -n "Waiting for IOC to become ready..."
   while ! lsirec/lsirec ${LSIREC_ADDR} info | grep -E "IOC is (OPERATIONAL|READY)"
   do
-    (( c > 20 )) && echo "timed out" && break
+    (( c > 180 )) && echo "timed out" && echo && echo "Operation incomplete, exiting early. Please check the state of the device." && exit 1
     ((c++))
     echo -n "."
     sleep 1
@@ -48,7 +48,7 @@ function wait_for_mpt {
   echo -n "Waiting for MPT..."
   while ! lsiutil/lsiutil -e -p1 -a 0 | grep -E "LSI.+SAS2[0-9]{3}"
   do
-    (( c > 20 )) && echo "timed out" && break
+    (( c > 180 )) && echo "timed out" && echo "Operation incomplete, exiting early. Please check the state of the device." && exit 1
     ((c++))
     echo -n "."
     sleep 1
