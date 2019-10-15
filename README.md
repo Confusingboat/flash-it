@@ -68,4 +68,4 @@ This one *is* interactive, but if your backups are in place you can just leave t
 3. `sudo ./restore_sbr.sh`
 
 ## Credit where it is due
-The creation of this script would not be possible without a PDF I found by [/u/fourlynx](https://www.reddit.com/u/fourlynx) or the [lsirec tool](https://github.com/marcan/lsirec) and [other info](https://marcan.st/2016/05/crossflashing-the-fujitsu-d2607/) by [Hector Martin](https://marcan.st/about/).
+The creation of this script would not have been possible without a PDF I found by [/u/fourlynx](https://www.reddit.com/u/fourlynx) or the [lsirec tool](https://github.com/marcan/lsirec) and [other info](https://marcan.st/2016/05/crossflashing-the-fujitsu-d2607/) by [Hector Martin](https://marcan.st/about/).
