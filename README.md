@@ -72,9 +72,11 @@ sudo ./flash-it.sh
 ## Troubleshooting
 
 ### It broke half way through and I want it to work again
-If the actual flash hasn't been erased or overwritten, just flash the original SBR back by running `restore_sbr.sh` from the same directory you downloaded the other two files into.
+Throughout the process, the script echos out what it's about to do. You should be able to figure out how to recover based on where the failure occurred.
 
-This one *is* interactive, but if your backups are in place you can just leave the inputs blank.
+For example, if the actual flash hasn't been erased or overwritten, just flash the original SBR back by running `restore_sbr.sh` from the same directory you ran the original `flash-it.sh` script. This should bring your card back to its factory state and allow you to start over.
+
+There is a script for simply flashing back the SBR. This one *is* interactive, but if your backups are still in place you can just leave the inputs blank and the script will find them.
 
 1. `wget https://raw.githubusercontent.com/confusingboat/flash-it/master/restore_sbr.sh`
 2. `chmod +x restore_sbr.sh`
