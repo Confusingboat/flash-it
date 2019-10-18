@@ -29,7 +29,7 @@ Tested on R320, R420, R720xd with RancherOS 1.5.4 (kernel 4.14) and the Ubuntu 1
 * PERC H200
 * PERC H200e
 * IBM M1015
-* Other cacheless LSI SAS2008 cards
+* Other cacheless LSI SAS2x08 cards
 
 ### Testing other adapters
 Testing adapters that are currently not on the supported list is super easy! Just change the `ADAPTER_PATTERN="H310"` line, where `H310` is a regex pattern that matches your adapter. Please let me know if you test another adapter with success or failure, with the following information:
