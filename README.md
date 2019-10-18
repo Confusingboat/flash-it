@@ -15,15 +15,26 @@ During execution the script will:
 
 Just a single reboot is necessary after the script completes.\*
 
-Currently this only works for the H310 Mini Mono until the SBR modification is made dynamic and additional device identification strings are accumulated/tested.
-
 Tested on R320, R420, R720xd with RancherOS 1.5.4 (kernel 4.14) and the Ubuntu 18.04 console, but should work with anything that has bash and apt.
 
 <sup>\*_You will need to move your backups to persistent storage before rebooting or they will be lost_</sup>
 
 ## Supported Devices
 * PERC H310 Mini Monolithic
+* PERC H310 (beta)
 * _more coming soon!_
+
+## Should support but untested (plz halp)
+* Other cacheless LSI SAS2008 cards
+
+## How to test other adapters
+Testing adapters that are currently not on the supported list is super easy! Just change the `ADAPTER_PATTERN="H310"` line, where `H310` is a regex pattern that matches your adapter. Please let me know if you test another adapter with success or failure, with the following information:
+* Adapter model
+* Exact pattern used
+* Whether it succeeded or failed
+* Other notes about your experience
+
+PRs are also welcome!
 
 ## Prerequisites
 * Server or other computer with only the target adapter installed and visible to the OS
@@ -39,10 +50,9 @@ This script was born from necessity. I've got a pile of 12G Dell servers that ne
 ## How to
 1. Ensure the adapter you want to flash is the only LSI/Avago/rebranded HBA device in the system.
 
-2. Copy `flash-it.sh` and `H310MM_mod.cfg` to a directory you're okay with making a mess in:
+2. Copy `flash-it.sh` to a directory you're okay with making a mess in:
 ```
 wget https://raw.githubusercontent.com/Confusingboat/flash-it/master/flash-it.sh
-wget https://raw.githubusercontent.com/Confusingboat/flash-it/master/H310MM_mod.cfg
 ```
 3. Make the script executable:
 ```
