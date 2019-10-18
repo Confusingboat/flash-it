@@ -18,7 +18,7 @@ BACKUP_ROOT_DIR="/tmp"
 
 ADAPTER_PATTERN="H310"
 ADAPTER_INDEX="0"
-SBR_CFG_MODIFIED_FILE_PATH="H310MM_mod.cfg"
+#SBR_CFG_MODIFIED_FILE_PATH="H310MM_mod.cfg"
 FIRMWARE_UNPACK_DIR="/tmp/lsi_firmware"
 UEFI_UNPACK_DIR="/tmp/lsi_uefi"
 FIRMWARE_FILE_NAME="2118it.bin"
@@ -177,12 +177,20 @@ BACKUP_SBR_CFG_FILE="${ADAPTER_BACKUP_DIR}/${SAS_ADDRESS}_backup.cfg"
 python3 lsirec/sbrtool.py parse "${BACKUP_SBR_FILE}" "${BACKUP_SBR_CFG_FILE}"
 echo
 
+# Modify SBR config
+echo "Modifying SBR config..."
+echo
+SBR_CFG_MODIFIED_FILE_PATH="${ADAPTER_BACKUP_DIR}/${SAS_ADDRESS}_modified.cfg"
+cp "${BACKUP_SBR_CFG_FILE}" "${SBR_CFG_MODIFIED_FILE_PATH}"
+sed -i -r -e "s/^PCIPID = [0-9a-z]+$/PCIPID = 0x0072/I" "${SBR_CFG_MODIFIED_FILE_PATH}"
+sed -i -r -e "s/^Interface = [0-9a-z]+$/Interface = 0x00/I" "${SBR_CFG_MODIFIED_FILE_PATH}"
+echo
+
 # Create modified SBR
 echo "Building new SBR..."
 echo
 SBR_MODIFIED_FILE="${ADAPTER_BACKUP_DIR}/${SAS_ADDRESS}_modified.sbr"
 [ ! -f "${SBR_CFG_MODIFIED_FILE_PATH}" ] && echo "Error: could not find modified SBR cfg file (e.g. H310MM_mod.cfg). No changes have been made." && exit 1
-# THIS IS WHERE THE CODE SHOULD GO TO DO DYNAMIC MODIFICATION OF THE CFG FILE INSTEAD OF RELYING ON A STATIC ASSET
 python3 lsirec/sbrtool.py build "${SBR_CFG_MODIFIED_FILE_PATH}" "${SBR_MODIFIED_FILE}"
 echo
 
