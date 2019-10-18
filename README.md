@@ -76,7 +76,7 @@ If the actual flash hasn't been erased or overwritten, just flash the original S
 
 This one *is* interactive, but if your backups are in place you can just leave the inputs blank.
 
-1. `wget https://raw.githubusercontent.com/Confusingboat/flash-it/master/restore_sbr.sh`
+1. `wget https://raw.githubusercontent.com/confusingboat/flash-it/master/restore_sbr.sh`
 2. `chmod +x restore_sbr.sh`
 3. `sudo ./restore_sbr.sh`
 
