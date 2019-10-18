@@ -27,15 +27,6 @@ Tested on R320, R420, R720xd with RancherOS 1.5.4 (kernel 4.14) and the Ubuntu 1
 ## Should support but untested (plz halp)
 * Other cacheless LSI SAS2008 cards
 
-## How to test other adapters
-Testing adapters that are currently not on the supported list is super easy! Just change the `ADAPTER_PATTERN="H310"` line, where `H310` is a regex pattern that matches your adapter. Please let me know if you test another adapter with success or failure, with the following information:
-* Adapter model
-* Exact pattern used
-* Whether it succeeded or failed
-* Other notes about your experience
-
-PRs are also welcome!
-
 ## Prerequisites
 * Server or other computer with only the target adapter installed and visible to the OS
 * Linux environment with bash and apt that does not rely on the controller (live environment is recommended)
@@ -76,6 +67,15 @@ This one *is* interactive, but if your backups are in place you can just leave t
 1. `wget https://raw.githubusercontent.com/Confusingboat/flash-it/master/restore_sbr.sh`
 2. `chmod +x restore_sbr.sh`
 3. `sudo ./restore_sbr.sh`
+
+## Testing other adapters
+Testing adapters that are currently not on the supported list is super easy! Just change the `ADAPTER_PATTERN="H310"` line, where `H310` is a regex pattern that matches your adapter. Please let me know if you test another adapter with success or failure, with the following information:
+* Adapter model
+* Exact pattern used
+* Whether it succeeded or failed
+* Other notes about your experience
+
+PRs are also welcome!
 
 ## Credit where it is due
 The creation of this script would not have been possible without a PDF I found by [/u/fourlynx](https://www.reddit.com/u/fourlynx) or the [lsirec tool](https://github.com/marcan/lsirec) and [other info](https://marcan.st/2016/05/crossflashing-the-fujitsu-d2607/) by [Hector Martin](https://marcan.st/about/).
