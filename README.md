@@ -26,10 +26,10 @@ This script was born from necessity. I've got a pile of 12G Dell servers that ne
 ## Supported Devices
 ### Tested
 * PERC H310 Mini Monolithic
-* PERC H310 (beta)
 * _more coming soon!_
 
 ### Untested
+* PERC H310
 * PERC H200
 * PERC H200e
 * IBM M1015
