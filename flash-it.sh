@@ -4,8 +4,8 @@
 [[ $EUID > 0 ]] && echo "Error: must run as root/su" && exit 1
 
 MEGACLI_URL="https://docs.broadcom.com/docs-and-downloads/raid-controllers/raid-controllers-common-files/8-07-14_MegaCLI.zip"
-LSIUTIL_URL="https://github.com/exactassembly/meta-xa-stm/raw/master/recipes-support/lsiutil/files/lsiutil-1.72.tar.gz"
-LSIREC_REPO_URL="https://github.com/marcan/lsirec"
+LSIUTIL_URL="https://github.com/confusingboat/meta-xa-stm/raw/master/recipes-support/lsiutil/files/lsiutil-1.72.tar.gz"
+LSIREC_REPO_URL="https://github.com/confusingboat/lsirec"
 FIRMWARE_BIOS_URL="https://docs.broadcom.com/docs-and-downloads/host-bus-adapters/host-bus-adapters-common-files/sas_sata_6g_p20/9211-8i_Package_P20_IR_IT_FW_BIOS_for_MSDOS_Windows.zip"
 UEFI_URL="https://docs.broadcom.com/docs-and-downloads/host-bus-adapters/host-bus-adapters-common-files/sas_sata_6g_p20/UEFI_BSD_P20.zip"
 
@@ -18,7 +18,7 @@ BACKUP_ROOT_DIR="/tmp"
 
 ADAPTER_PATTERN="H310"
 ADAPTER_INDEX="0"
-SBR_CFG_MODIFIED_FILE_PATH="H310MM_mod.cfg"
+#SBR_CFG_MODIFIED_FILE_PATH="H310MM_mod.cfg"
 FIRMWARE_UNPACK_DIR="/tmp/lsi_firmware"
 UEFI_UNPACK_DIR="/tmp/lsi_uefi"
 FIRMWARE_FILE_NAME="2118it.bin"
@@ -177,12 +177,20 @@ BACKUP_SBR_CFG_FILE="${ADAPTER_BACKUP_DIR}/${SAS_ADDRESS}_backup.cfg"
 python3 lsirec/sbrtool.py parse "${BACKUP_SBR_FILE}" "${BACKUP_SBR_CFG_FILE}"
 echo
 
+# Modify SBR config
+echo "Modifying SBR config..."
+echo
+SBR_CFG_MODIFIED_FILE_PATH="${ADAPTER_BACKUP_DIR}/${SAS_ADDRESS}_modified.cfg"
+cp "${BACKUP_SBR_CFG_FILE}" "${SBR_CFG_MODIFIED_FILE_PATH}"
+sed -i -r -e "s/^PCIPID = [0-9a-z]+$/PCIPID = 0x0072/I" "${SBR_CFG_MODIFIED_FILE_PATH}"
+sed -i -r -e "s/^Interface = [0-9a-z]+$/Interface = 0x00/I" "${SBR_CFG_MODIFIED_FILE_PATH}"
+echo
+
 # Create modified SBR
 echo "Building new SBR..."
 echo
 SBR_MODIFIED_FILE="${ADAPTER_BACKUP_DIR}/${SAS_ADDRESS}_modified.sbr"
 [ ! -f "${SBR_CFG_MODIFIED_FILE_PATH}" ] && echo "Error: could not find modified SBR cfg file (e.g. H310MM_mod.cfg). No changes have been made." && exit 1
-# THIS IS WHERE THE CODE SHOULD GO TO DO DYNAMIC MODIFICATION OF THE CFG FILE INSTEAD OF RELYING ON A STATIC ASSET
 python3 lsirec/sbrtool.py build "${SBR_CFG_MODIFIED_FILE_PATH}" "${SBR_MODIFIED_FILE}"
 echo
 
