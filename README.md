@@ -23,13 +23,13 @@ Tested on R320, R420, R720xd with RancherOS 1.5.4 (kernel 4.14) and the Ubuntu 1
 
 This script was born from necessity. I've got a pile of 12G Dell servers that need IT firmware and I wasn't about to flash them all manually. Drives were removed for the first server I flashed, but left in for the subsequent machines to no ill-effect. If you're paranoid, remove them. I tried to make the script with as many safeties as possible since this is such a sensitive process, but it's not perfect, as nothing is.
 
-## Supported Devices
+## Supported devices
 ### Tested
 * PERC H310 Mini Monolithic
+* PERC H310
 * _more coming soon!_
 
 ### Untested
-* PERC H310
 * PERC H200
 * PERC H200e
 * IBM M1015
@@ -44,10 +44,25 @@ Testing adapters that are currently not on the supported list is super easy! Jus
 
 PRs are also welcome!
 
+## Supported Linux distros
+### Tested working
+* RancherOS 1.5.4 w/ Ubuntu 18.04 console
+* Ubuntu 18.04 works after updating git in this fashion first
+  ```
+  $ sudo add-apt-repository ppa:git-core/ppa
+  $ sudo apt-get update
+  $ sudo apt-get install git
+  ```
+  
+### Tested not working
+* Debian 10.1.0
+  * User reported an issue surrounding libncurses5 that maybe someone else can test/fix
+
 ## How to
 ### Prerequisites
 * Server or other computer with only the target adapter installed and visible to the OS
-* Linux environment with bash and apt that does not rely on the controller (live environment is recommended)
+* Supported Linux distro from above that does not rely on the controller (live environment is recommended)
+  * Use others only at your own risk
 * Internet access from the flashing environment
 
 ### Flashing
