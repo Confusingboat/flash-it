@@ -53,10 +53,22 @@ PRs are also welcome!
   $ sudo apt-get update
   $ sudo apt-get install git
   ```
+* Debian Live 10.0.X 
+* You must also add a flag to the kernel on boot, choose to boot to Debian live with C or E and set
+```
+iomem=relaxed
+```
+* On login install ncurses5
+```
+sudo apt-get update -y
+sudo apt-get install libncurses5 -y
+```
+
   
 ### Tested not working
 * Debian 10.1.0
   * User reported an issue surrounding libncurses5 that maybe someone else can test/fix
+  * Probably same steps required for 10.0.X
 
 ## How to
 ### Prerequisites
