@@ -46,29 +46,32 @@ PRs are also welcome!
 
 ## Supported Linux distros
 ### Tested working
-* RancherOS 1.5.4 w/ Ubuntu 18.04 console
-* Ubuntu 18.04 works after updating git in this fashion first
+#### Ubuntu 18.04 (RancherOS 1.5.4 live or installed)
+* Just works™
+#### Ubuntu 18.04
+* Just works™
+#### Ubuntu Live 18.04
+* You have to get git working
   ```
-  $ sudo add-apt-repository ppa:git-core/ppa
-  $ sudo apt-get update
-  $ sudo apt-get install git
+  sudo add-apt-repository ppa:git-core/ppa
+  sudo apt-get update
+  sudo apt-get install git
   ```
-* Debian Live 10.0.X 
-* You must also add a flag to the kernel on boot, choose to boot to Debian live with C or E and set
-```
-iomem=relaxed
-```
+#### Debian Live 10.0.X
+* You must add a flag to the kernel on boot, choose to boot to Debian live with C or E and set
+  ```
+  iomem=relaxed
+  ```
 * On login install ncurses5
-```
-sudo apt-get update -y
-sudo apt-get install libncurses5 -y
-```
+  ```
+  sudo apt-get update -y
+  sudo apt-get install libncurses5 -y
+  ```
 
-  
 ### Tested not working
-* Debian 10.1.0
+#### Debian 10.1.0
   * User reported an issue surrounding libncurses5 that maybe someone else can test/fix
-  * Probably same steps required for 10.0.X
+  * Will probably work with the same steps required for 10.0.X
 
 ## How to
 ### Prerequisites
