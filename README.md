@@ -15,21 +15,25 @@ During execution the script will:
 
 Just a single reboot is necessary after the script completes.\*
 
-Tested on R320, R420, R720xd with RancherOS 1.5.4 (kernel 4.14) and the Ubuntu 18.04 console, but should work with anything that has bash and apt.
-
 <sup>\*_You will need to move your backups to persistent storage before rebooting or they will be lost_</sup>
 
 ### Brief background
 
 This script was born from necessity. I've got a pile of 12G Dell servers that need IT firmware and I wasn't about to flash them all manually. Drives were removed for the first server I flashed, but left in for the subsequent machines to no ill-effect. If you're paranoid, remove them. I tried to make the script with as many safeties as possible since this is such a sensitive process, but it's not perfect, as nothing is.
 
-## Supported devices
-### Tested
+## Supported hardware
+### Tested servers
+* R230
+* R420
+* R720
+* R720xd
+
+### Tested adapters
 * PERC H310 Mini Monolithic
 * PERC H310
 * _more coming soon!_
 
-### Untested
+### Untested adapters
 * PERC H200
 * PERC H200e
 * IBM M1015
@@ -45,19 +49,20 @@ Testing adapters that are currently not on the supported list is super easy! Jus
 PRs are also welcome!
 
 ## Supported Linux distros
-### Tested working
+### Tested
 #### Ubuntu 18.04 (RancherOS 1.5.4 live or installed)
 * Just works™
 #### Ubuntu 18.04
 * Just works™
 #### Ubuntu Live 18.04
-* You have to get git working
+* You have to get git working; there is an untested fix for this in the `ubuntu-18.04-live-fix` branch
+* Alternatively you can try:
   ```
   sudo add-apt-repository ppa:git-core/ppa
   sudo apt-get update
   sudo apt-get install git
   ```
-#### Debian Live 10.0.X
+#### Debian Live 10.X.X
 * You must add a flag to the kernel on boot, choose to boot to Debian live with C or E and set
   ```
   iomem=relaxed
@@ -67,11 +72,6 @@ PRs are also welcome!
   sudo apt-get update -y
   sudo apt-get install libncurses5 -y
   ```
-
-### Tested not working
-#### Debian 10.1.0
-  * User reported an issue surrounding libncurses5 that maybe someone else can test/fix
-  * Will probably work with the same steps required for 10.0.X
 
 ## How to
 ### Prerequisites
@@ -97,7 +97,7 @@ chmod +x flash-it.sh
 sudo ./flash-it.sh
 ```
 
-**Don't forget to save your backups.** They will be saved in `/tmp/<your SAS address>` throughout the flashing process.
+**Don't forget to save your backups.** They will be saved in `/tmp/<your SAS address>` throughout the flashing process; this directory is often emptied every reboot even on installed distros.
 
 ## Troubleshooting
 
