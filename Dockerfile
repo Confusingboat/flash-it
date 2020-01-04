@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-
+ARG DEBIAN_FRONTEND noninteractive
 COPY . /tmp/flash-it/
 RUN apt-get update && \
     apt-get install -y software-properties-common && \
