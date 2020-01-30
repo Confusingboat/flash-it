@@ -112,6 +112,10 @@ There is a script for simply flashing back the SBR. This one *is* interactive, b
 2. `chmod +x restore_sbr.sh`
 3. `sudo ./restore_sbr.sh`
 
+### That didn't work, plz halp
+
+[Here is a guide to recovering a dead card using the lsirec itility.](https://github.com/marcan/lsirec#untested-procedure-to-convert-from-megaraid-to-itir-firmware-or-recover-a-bricked-card)
+
 ## Disclaimer
 
 *By downloading and using the scripty bits and associated file(s), you are relinquishing the ability to hold me accountable in any capacity for hardware/software damage or data loss, as well as any moldy pizzas or fruit flies that may manifest in and around your server(s). Use at your own risk.*
