@@ -70,7 +70,7 @@ PRs are also welcome!
 * On login install ncurses5
   ```
   sudo apt-get update -y
-  sudo apt-get install libncurses5 -y
+  sudo apt-get install libncurses5 wget -y
   ```
 
 ## How to
