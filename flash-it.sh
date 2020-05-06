@@ -102,9 +102,9 @@ if [ ! -f "${MEGACLI_FILE_NAME}" ]; then
 fi
 
 # Display SAS address and dump to file
-opt/MegaRAID/MegaCli/MegaCli64 -AdpAllInfo -a${ADAPTER_INDEX} | grep SAS\ Address
+/opt/MegaRAID/MegaCli/MegaCli64 -AdpAllInfo -a${ADAPTER_INDEX} | grep SAS\ Address
 BACKUP_SAS_ADDRESS_FILE="$(find ${BACKUP_ROOT_DIR} -name sas_address.txt)"
-SAS_ADDRESS="$(opt/MegaRAID/MegaCli/MegaCli64 -AdpAllInfo -a${ADAPTER_INDEX} | grep -E 'SAS Address[^:]*:\W*(\w+)' | cut -d':' -f2 | cut -d' ' -f2)"
+SAS_ADDRESS="$(/opt/MegaRAID/MegaCli/MegaCli64 -AdpAllInfo -a${ADAPTER_INDEX} | grep -E 'SAS Address[^:]*:\W*(\w+)' | cut -d':' -f2 | cut -d' ' -f2)"
 if [ ${#SAS_ADDRESS} -ne 16 ]; then
   echo "Could not retrieve SAS address from MegaCli, attempting to load from existing backup file."
   [ ! -f "${BACKUP_SAS_ADDRESS_FILE}" ] && echo "Error: unable to locate SAS address backup file. No changes have been made." && exit 1
