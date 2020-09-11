@@ -50,6 +50,12 @@ PRs are also welcome!
 
 ## Supported Linux distros
 ### Tested
+#### Ubuntu 20.04 (live)
+  ```
+  sudo add-apt-repository universe
+  sudo apt update
+  sudo apt install libncurses5
+  ```
 #### Ubuntu 18.04 (RancherOS 1.5.4 live or installed)
 * Just works™
 #### Ubuntu 18.04
