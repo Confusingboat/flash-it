@@ -24,6 +24,7 @@ This script was born from necessity. I've got a pile of 12G Dell servers that ne
 ## Supported hardware
 ### Tested servers
 * R230
+* R320
 * R420
 * R720
 * R720xd
