@@ -23,7 +23,7 @@ This script was born from necessity. I've got a pile of 12G Dell servers that ne
 
 ## Supported hardware
 ### Tested servers
-* R230
+* R320
 * R420
 * R720
 * R720xd
@@ -31,10 +31,10 @@ This script was born from necessity. I've got a pile of 12G Dell servers that ne
 ### Tested adapters
 * PERC H310 Mini Monolithic
 * PERC H310
+* PERC H200
 * _more coming soon!_
 
 ### Untested adapters
-* PERC H200
 * PERC H200e
 * IBM M1015
 * Other cacheless LSI SAS2x08 cards
