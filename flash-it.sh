@@ -144,8 +144,8 @@ rmmod megaraid_sas
 echo 16 > /proc/sys/vm/nr_hugepages
 
 # Display full PCI information and dump PCI address to file
-lspci -nnv | grep ${ADAPTER_PATTERN} -B1
-PCI_ADDRESS="$(lspci -nnv | grep ${ADAPTER_PATTERN} -B1 | grep -E '^\w+' | cut -d' ' -f1)"
+lspci -mnn | grep ${ADAPTER_PATTERN}
+PCI_ADDRESS="$(lspci -mnn | grep ${ADAPTER_PATTERN} | grep -E '^\w+' | cut -d' ' -f1)"
 if [ ${#PCI_ADDRESS} -ne 7 ]; then
   echo "Could not retrieve PCI address from lspci, attempting to load from existing backup file."
   [ ! -f "${BACKUP_PCI_ADDRESS_FILE}" ] && echo "Error: unable to locate PCI address backup file. No changes have been made." && exit 1
