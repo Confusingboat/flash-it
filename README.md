@@ -23,20 +23,21 @@ This script was born from necessity. I've got a pile of 12G Dell servers that ne
 
 ## Supported hardware
 ### Tested servers
-* R320
-* R420
-* R720
-* R720xd
+* Dell R320
+* Dell R420
+* Dell R720
+* Dell R720xd
+* Huawei RH2288v2
 
 ### Tested adapters
 * PERC H310 Mini Monolithic
 * PERC H310
 * PERC H200
+* IBM M1015
 * _more coming soon!_
 
 ### Untested adapters
 * PERC H200e
-* IBM M1015
 * Other cacheless LSI SAS2x08 cards
 
 ### Testing other adapters
