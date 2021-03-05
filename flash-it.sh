@@ -16,7 +16,7 @@ UEFI_PACKAGE_FILE_NAME="uefi.zip"
 
 BACKUP_ROOT_DIR="/tmp"
 
-ADAPTER_PATTERN="H310"
+ADAPTER_PATTERN="H310|H200|M1015"
 ADAPTER_INDEX="0"
 #SBR_CFG_MODIFIED_FILE_PATH="H310MM_mod.cfg"
 FIRMWARE_UNPACK_DIR="/tmp/lsi_firmware"
@@ -144,8 +144,8 @@ rmmod megaraid_sas
 echo 16 > /proc/sys/vm/nr_hugepages
 
 # Display full PCI information and dump PCI address to file
-lspci -mnn | grep ${ADAPTER_PATTERN}
-PCI_ADDRESS="$(lspci -mnn | grep ${ADAPTER_PATTERN} | grep -E '^\w+' | cut -d' ' -f1)"
+lspci -mnn | grep -E ${ADAPTER_PATTERN}
+PCI_ADDRESS="$(lspci -mnn | grep -E ${ADAPTER_PATTERN} | grep -E '^\w+' | cut -d' ' -f1)"
 if [ ${#PCI_ADDRESS} -ne 7 ]; then
   echo "Could not retrieve PCI address from lspci, attempting to load from existing backup file."
   [ ! -f "${BACKUP_PCI_ADDRESS_FILE}" ] && echo "Error: unable to locate PCI address backup file. No changes have been made." && exit 1
