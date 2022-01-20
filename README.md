@@ -113,17 +113,18 @@ sudo ./flash-it.sh
 **Don't forget to save your backups.** They will be saved in `/tmp/<your SAS address>` throughout the flashing process; this directory is often emptied every reboot even on installed distros.
 
 ## Troubleshooting
+Due to the nature of what this script does there are many opportunities for breakage along the way. Unfortunately this means it won't be possible to document a solution for every possible failure, but the ones that have well-known solutions will be kept here.
 
-### It broke half way through and I want it to work again
-Throughout the process, the script echos out what it's about to do. You should be able to figure out how to recover based on where the failure occurred.
+### Restoring original SBR
 
-For example, if the actual flash hasn't been erased or overwritten, just flash the original SBR back by running `restore_sbr.sh` from the same directory you ran the original `flash-it.sh` script. This should bring your card back to its factory state and allow you to start over.
-
-There is a script for simply flashing back the SBR. This one *is* interactive, but if your backups are still in place you can just leave the inputs blank and the script will find them.
+**If the actual flash hasn't been erased or overwritten**, there is a script for simply flashing back the SBR. This should bring your card back to its factory state and allow you to start over. This one *is* interactive, but if your backups are still in place you can just leave the inputs blank and the script will find them.
 
 1. `wget https://raw.githubusercontent.com/confusingboat/flash-it/master/restore_sbr.sh`
 2. `chmod +x restore_sbr.sh`
 3. `sudo ./restore_sbr.sh`
+
+### It broke half way through and I want it to work again
+Throughout the process, the script echos out what it's about to do. You should be able to figure out how to recover based on where the failure occurred.
 
 ### That didn't work, plz halp
 
