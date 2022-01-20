@@ -21,6 +21,12 @@ Just a single reboot is necessary after the script completes.\*
 
 This script was born from necessity. I've got a pile of 12G Dell servers that need IT firmware and I wasn't about to flash them all manually. Drives were removed for the first server I flashed, but left in for the subsequent machines to no ill-effect. If you're paranoid, remove them. I tried to make the script with as many safeties as possible since this is such a sensitive process, but it's not perfect, as nothing is.
 
+## Important notes
+
+### IOMMU
+One of the tools the script utilizes (lsirec) is incompatible with IOMMU/VT-d. You will need to disable it before running this tool, but may safely re-enable it after the process is complete. It can be disabled either in your BIOS/UEFI or via GRUB kernel parameter with `iommu=soft` or `iommu=off`.
+
+
 ## Supported hardware
 ### Tested servers
 * Dell R320
