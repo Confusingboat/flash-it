@@ -39,11 +39,11 @@ One of the tools the script utilizes (lsirec) is incompatible with IOMMU/VT-d. Y
 * PERC H310 Mini Monolithic
 * PERC H310
 * PERC H200
+* PERC H200e
 * IBM M1015
 * _more coming soon!_
 
 ### Untested adapters
-* PERC H200e
 * Other cacheless LSI SAS2x08 cards
 
 ### Testing other adapters
