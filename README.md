@@ -41,6 +41,7 @@ One of the tools the script utilizes (lsirec) is incompatible with IOMMU/VT-d. Y
 * PERC H200
 * PERC H200e
 * IBM M1015
+* IBM M1115
 * _more coming soon!_
 
 ### Untested adapters
@@ -84,6 +85,23 @@ PRs are also welcome!
   ```
   sudo apt-get update -y
   sudo apt-get install libncurses5 wget -y
+  ```
+
+#### Debian Live 13.X.X
+* You must add a flag to the kernel on boot. Choose to boot to Debian live with C or E and set
+  ```
+  iomem=relaxed
+  ```
+* You can also disable IOMMU if you didn't want to do this in BIOS/UEFI
+  ```
+  iomem=relaxed iommu=off
+  ```
+* On login install wget and symlink ncurses5 to ncurses6
+  ```
+  sudo apt update -y
+  sudo apt install wget -y
+  sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6 /usr/lib/x86_64-linux-gnu/libncurses.so.5
+  sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6 /usr/lib/x86_64-linux-gnu/libtinfo.so.5
   ```
 
 ## How to
